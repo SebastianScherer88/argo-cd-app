@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 from app.utils import ValidUser, create_message
 
-API_PORT = int(os.environ.get('API_PORT',8080))
+API_PORT = int(os.environ.get('API_PORT',8000))
 
 demo_app = FastAPI()
 

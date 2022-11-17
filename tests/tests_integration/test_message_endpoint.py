@@ -5,7 +5,7 @@ import requests
 
 from app.utils import create_message
 
-port=int(os.environ.get('PORT', 8080))
+port=int(os.environ.get('API_PORT', 8000))
 
 url_template = 'http://127.0.0.1:{port}/{user_name}'
 
