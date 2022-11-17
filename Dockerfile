@@ -2,6 +2,8 @@ FROM python:3.10
 
 WORKDIR /repository
 
+ENV PYTHONPATH /repository
+
 COPY ./requirements.txt /repository/requirements.txt
 COPY ./app /repository/app
 COPY ./tests /repository/tests
