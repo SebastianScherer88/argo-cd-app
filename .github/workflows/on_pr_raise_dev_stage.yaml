@@ -25,4 +25,4 @@ jobs:
     
     # run container with integration test command
     - name: Run the regression tests inside the docker container
-    run: docker run -t temp /bin/bash -c "python app/api.py > log.txt 2>&1 & pytest /code/tests/tests_integration/"
+      run: docker run -t temp /bin/bash -c "python app/api.py > log.txt 2>&1 & pytest /code/tests/tests_integration/"
