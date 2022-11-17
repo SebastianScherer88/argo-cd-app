@@ -1,12 +1,14 @@
 name: Build, tag and push docker image to repository 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
       - development
       - stage
   
 jobs:
-  deploy:
+  build_docker_and_push:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     
     steps:
@@ -15,8 +17,8 @@ jobs:
       
     # Build and tag the image using naming convention {docker-repository}:{branch_name}-{commit_id}
     - name: Build Container image
-      run: docker build -t bettmensch88/argo-cd-demo-api:${{ github.event.push.base.ref }}-${{  github.sha }} .
+      run: docker build -t bettmensch88/argo-cd-demo-api:${{ github.head_ref }}-${{  github.sha }} .
           
     # Push Container to registry
     - name: Push Container
-      run: docker push bettmensch88/argo-cd-demo-api:${{ github.event.push.base.ref }}-${{  github.sha }}
+      run: docker push bettmensch88/argo-cd-demo-api:${{ github.head_ref }}-${{  github.sha }}
