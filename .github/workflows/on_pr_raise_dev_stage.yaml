@@ -1,9 +1,9 @@
-name: Test PR content into dev or staging branches
+name: Test PR content into 'development' or 'stage' branches
 on:
   pull_request:
     branches:
-      - staging
-      - production
+      - development
+      - stage
   
 jobs:
   build_docker:
