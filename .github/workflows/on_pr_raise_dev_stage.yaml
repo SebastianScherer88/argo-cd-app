@@ -1,4 +1,4 @@
-name: Test PR content into 'development' or 'stage' branches
+name: Test content of PRs into 'development' or 'stage' branches
 on:
   pull_request:
     branches:
