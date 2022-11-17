@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir --upgrade -r /repository/requirements.txt
 
 ENV API_PORT 8000
 
-CMD ["python", "app/api:app"]
+CMD ["python", "app/api.py"]
