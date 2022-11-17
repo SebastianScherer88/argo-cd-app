@@ -17,7 +17,7 @@ jobs:
     # build container image from source branch  
     - name: Build Container
       run: |-
-        docker build -t temp ./docker
+        docker build -t temp .
 
     # run container with unit test command
     - name: Run the unit test inside the docker container
