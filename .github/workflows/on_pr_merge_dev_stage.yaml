@@ -1,0 +1,22 @@
+name: Build, tag and push docker image to repository 
+on:
+  push:
+    branches:
+      - development
+      - stage
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    # Build and tag the image using naming convention {docker-repository}:{branch_name}-{commit_id}
+    - name: Build Container image
+      run: docker build -t bettmensch88/argo-cd-demo-api:${{ github.event.push.base.ref }}-${{  github.sha }} .
+          
+    # Push Container to registry
+    - name: Push Container
+      run: docker push bettmensch88/argo-cd-demo-api:${{ github.event.push.base.ref }}-${{  github.sha }}

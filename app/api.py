@@ -3,9 +3,9 @@ import os
 import uvicorn
 from fastapi import FastAPI
 
-from utils import ValidUser, create_message
+from app.utils import ValidUser, create_message
 
-API_PORT = int(os.environ.get('API_PORT',8080))
+API_PORT = int(os.environ.get('API_PORT',8000))
 
 demo_app = FastAPI()
 
