@@ -1,12 +1,13 @@
 FROM python:3.10
 
-WORKDIR /code
+WORKDIR /repository
 
-COPY ./requirements.txt /code/requirements.txt
-COPY ./app /code/app
+COPY ./requirements.txt /repository/requirements.txt
+COPY ./app /repository/app
+COPY ./tests /repository/tests
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 ENV API_PORT = 8080
 
-CMD ["python", "app.api:app"]
+CMD ["python", "app/api:app"]
