@@ -15,7 +15,7 @@ async def default_message():
     return {"message": create_message()}
 
 @demo_app.get("/{user_name}/")
-async def named_message(user_name: ValidUser = 'Sebastian'):
+async def named_message(user_name: ValidUser = ''):
     return {"message": create_message(user_name)}
 
 if __name__ == "__main__":

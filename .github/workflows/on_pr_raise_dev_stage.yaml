@@ -1,0 +1,38 @@
+name: Test PR content into dev or staging branches
+on:
+  pull_request:
+    branches:
+      - staging
+      - production
+  
+jobs:
+  build_docker:
+    name: Build the docker container
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    # build container image from source branch  
+    - name: Build Container
+      run: |-
+        docker build -t temp .
+
+  run_unit_tests:
+    name: Run the unit test inside the docker container
+    needs: build_docker
+
+    steps:
+    # run container with unit test command
+    - name: Run unit tests in docker container
+      run: docker run -t temp pytest /code/tests/tests_unit/
+    
+  run_regression_tests:
+    name: Run the regression tests inside the docker container
+    needs: build_docker
+
+    steps:
+    # run container with integration test command
+    - name: Run integration tests
+      run: docker run -t temp /bin/bash -c "python app/api.py > log.txt 2>&1 & pytest /code/tests/tests_integration/"
