@@ -6,8 +6,8 @@ on:
       - stage
   
 jobs:
-  build_docker:
-    name: Build the docker container
+  build_docker_and_test:
+    name: Build the docker container and run tests
     runs-on: ubuntu-latest
     
     steps:
