@@ -15,7 +15,7 @@ def test_root():
     assert response.status_code == 200
     assert response.json() == {"message": create_message()}
 
-@pytest.mark.parametrize('user_name',('Sebastian','Nutch','Vincent','Vishal'))
+@pytest.mark.parametrize('user_name',('Sebastian','Syed','Nutch','Vincent','Vishal'))
 def test_custom_message_valid_username(user_name):
 
     response = requests.get(url_template.format(port=port,user_name=user_name))

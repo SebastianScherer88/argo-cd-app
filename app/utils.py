@@ -4,6 +4,7 @@ from enum import Enum
 class ValidUser(str, Enum):
     nutch = 'Nutch'
     seb = 'Sebastian'
+    syed = 'Syed'
     vincent = 'Vincent'
     vishal = 'Vishal'
 
